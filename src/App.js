@@ -28,21 +28,16 @@ function App() {
   console.log(process.env);
   const [enterData, setEnterData] = useState(null);
   const [age, setAge] = useState("");
-  let today = new Date();
-
-
+  
   const submitHandler = () => { 
-
+    const today = new Date();
     //pirmas
     if (process.env.NODE_ENV ==='development'){
-      console.log("today: ", today.getTime(), " entered: ", enterData.getTime())
     setAge(calculateAge(today.getTime(),enterData.getTime()));
-
     }
 
    
     if (process.env.NODE_ENV ==='production'){
-      console.log("today: ", today.getTime(), " entered: ", enterData.getTime())
       setAge(calculateYears(today,enterData));
     }
   }
